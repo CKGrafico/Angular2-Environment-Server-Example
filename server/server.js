@@ -2,11 +2,11 @@ var restify = require('restify');
 
 var server = restify.createServer();
 
-server.head('/api/config', () => {
+server.get('/api/config', (req, res) => {
     let config = {
         name: 'Quique' || process.env.name
     };
-    res.send(JSON.stringify(config));
+    res.send(config);
     next();
 });
 
