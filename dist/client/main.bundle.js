@@ -21,7 +21,7 @@ module.exports = module.exports.toString();
 /***/ 137:
 /***/ (function(module, exports) {
 
-module.exports = "<h1>\r\n  {{title}}\r\n</h1>\r\n"
+module.exports = "<h1>\n  {{title}}\n</h1>\n"
 
 /***/ }),
 

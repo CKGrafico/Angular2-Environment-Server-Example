@@ -4,9 +4,10 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
+    "postinstall": "npm install ./server",
     "start": "npm run build",
     "poststart": "npm run serve",
-    "build": "ng build && cpx \"server/**/*.js\" dist/client",
+    "build": "ng build && cpx \"server/**/*.js\" dist/client && cpx \"web.config\" dist/client",
     "serve": "node dist/client/server.js"
   },
   "dependencies": {
