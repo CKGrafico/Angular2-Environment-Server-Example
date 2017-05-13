@@ -5,17 +5,15 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
+import { ISettings } from './config.model';
+
 @Injectable()
 export class ConfigService {
-    private config: any;
+    public settings: ISettings;
 
-    constructor(private http: Http) { 
-        let a = Date.now();
-        this.config = {a: a};
-        console.log(a)
-    }
+    constructor(private http: Http) { }
 
-    load() {
+    public load(): Promise<ISettings> {
         return this.http.get('/api/config')
             .map(res=> this.extractData(res))
             .catch(this.handleError)
@@ -24,11 +22,8 @@ export class ConfigService {
 
     private extractData(res: Response) {
         let body = res.json();
-        this.config = body;
-    }
-
-    public get() {
-        return this.config;
+        this.settings = body;
+        return this.settings;
     }
     
     private handleError(error: Response) {

@@ -21,7 +21,7 @@ module.exports = module.exports.toString();
 /***/ 137:
 /***/ (function(module, exports) {
 
-module.exports = "<h1>\n  {{title}}\n</h1>\n"
+module.exports = "<h1>\n  {{title}} - {{name}}\n</h1>\n"
 
 /***/ }),
 
@@ -80,9 +80,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ConfigService = (function () {
     function ConfigService(http) {
         this.http = http;
-        var a = Date.now();
-        this.config = { a: a };
-        console.log(a);
     }
     ConfigService.prototype.load = function () {
         var _this = this;
@@ -93,10 +90,8 @@ var ConfigService = (function () {
     };
     ConfigService.prototype.extractData = function (res) {
         var body = res.json();
-        this.config = body;
-    };
-    ConfigService.prototype.get = function () {
-        return this.config;
+        this.settings = body;
+        return this.settings;
     };
     ConfigService.prototype.handleError = function (error) {
         return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error);
@@ -158,7 +153,7 @@ var AppComponent = (function () {
         this.title = 'app works!';
     }
     AppComponent.prototype.ngOnInit = function () {
-        console.log(this.configService.get());
+        this.name = this.configService.settings.name;
     };
     return AppComponent;
 }());

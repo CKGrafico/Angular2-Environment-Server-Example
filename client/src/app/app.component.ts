@@ -7,11 +7,12 @@ import { ConfigService } from "app/config.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  public title = 'app works!';
+  public name: string;
 
   constructor(private configService: ConfigService) { }
 
   ngOnInit() {
-    console.log(this.configService.get());
+    this.name = this.configService.settings.name;
   }
 }
