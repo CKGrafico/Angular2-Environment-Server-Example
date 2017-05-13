@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ConfigService } from "app/config.service";
 
 @Component({
   selector: 'app-root',
@@ -9,9 +8,8 @@ import { ConfigService } from "app/config.service";
 export class AppComponent {
   title = 'app works!';
 
-  constructor(private configService: ConfigService) { }
+  constructor() { }
 
   ngOnInit() {
-    console.log(this.configService.get());
   }
 }

@@ -5,8 +5,8 @@
   },
   "apps": [
     {
-      "root": "client/src",
-      "outDir": "dist/client",
+      "root": "src",
+      "outDir": "dist",
       "assets": [
         "assets",
         "favicon.ico"
@@ -29,27 +29,6 @@
       }
     }
   ],
-  "e2e": {
-    "protractor": {
-      "config": "./protractor.conf.js"
-    }
-  },
-  "lint": [
-    {
-      "project": "client/src/tsconfig.app.json"
-    },
-    {
-      "project": "client/src/tsconfig.spec.json"
-    },
-    {
-      "project": "client/e2e/tsconfig.e2e.json"
-    }
-  ],
-  "test": {
-    "karma": {
-      "config": "./karma.conf.js"
-    }
-  },
   "defaults": {
     "styleExt": "css",
     "component": {}

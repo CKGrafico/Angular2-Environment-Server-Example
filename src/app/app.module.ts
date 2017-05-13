@@ -4,11 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { ConfigService } from './config.service';
-
-export function loadConfig(config: ConfigService) {
-  return () => config.load();
-}
 
 @NgModule({
   declarations: [
@@ -20,11 +15,6 @@ export function loadConfig(config: ConfigService) {
     HttpModule
   ],
   providers: [
-    ConfigService,
-    { provide: APP_INITIALIZER,
-    useFactory: loadConfig,
-    deps: [ConfigService],
-    multi: true }
   ],
   bootstrap: [AppComponent]
 })
