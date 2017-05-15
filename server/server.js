@@ -4,7 +4,7 @@ var server = restify.createServer();
 
 server.get('/api/config', (req, res) => {
     let config = {
-        name: 'Quique' || process.env.name
+        name: process.env.name || 'Quique'
     };
     res.send(config);
     next();
